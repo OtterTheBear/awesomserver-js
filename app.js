@@ -22,13 +22,14 @@ const server = http.createServer((req, res) => {
             console.log(`> b: ${JSON.stringify(b)}`);
 			message = b.message;
 			enc = { encoding: 'utf8' }
-			existingcontents = fs.readFileSync('userinput.txt', enc);
+			existingcontents = fs.readFileSync('msgs/msg-1.txt', enc);
             newcontents = message + '\n' + existingcontents;
-			fs.writeFileSync('userinput.txt', 
+			fs.writeFileSync('msgs/msg-1.txt', 
                 newcontents,
 				enc);
 	        res.statusCode = 200;
-    	    res.setHeader('Content-Type', 'application/json');
+            res.setHeader('Content-Type', 'application/json');
+            res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
         	res.end(JSON.stringify({'data': newcontents}));
     	});
     } else {

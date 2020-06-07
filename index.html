@@ -2,13 +2,14 @@
 <html>
     <head>
         <title>Node.js Test</title>
-        <link rel="stylesheet" href="/style.css" />
+        <link rel="stylesheet" href="style.css" />
         <script src="script.js"></script>
     </head>
     <body>
-        <p>Hi</p>
-        <input type="text" id="message" name="message">
-        <button id="butt">Click</button>
-        <div id="hook"></div>
+        <form id="form">
+            <textarea placeholder="Send a message..." id="message" name="message"></textarea>
+            <button id="butt">Click</button>
+        </form>
+        <div id="board" style="font-family:sans-serif;white-space:pre;width:50%;overflow-wrap:break-word;"></div>
     </body>
 </html>
