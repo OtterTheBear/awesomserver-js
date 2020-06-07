@@ -45,11 +45,17 @@ server {
 
 	server_name _;
 
+    include /etc/nginx/default-conf.d/*.conf;
+
 	location / {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri.html $uri/ =404;
 	}
+
+    location ~ /msgs {
+        add_header Cache-Control 'no-store, no-cache';
+    }
 
 	# pass PHP scripts to FastCGI server
 	#
